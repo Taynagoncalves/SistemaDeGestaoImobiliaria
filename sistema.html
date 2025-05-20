@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Sistema Imobiliário</title>
+  <link rel="stylesheet" href="styles.css">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+</head>
+<body>
+  <h1>Sistema de Gestão Imobiliária</h1>
+
+  <h2>Cadastrar Imóvel</h2>
+  <form id="formImovel">
+    <input type="text" id="descricaoImovel" placeholder="Descrição do Imóvel" required>
+    <input type="text" id="tipoImovel" placeholder="Tipo (casa, apê...)" required>
+    <input type="number" id="precoImovel" placeholder="Preço" required>
+    <button type="submit">Cadastrar Imóvel</button>
+  </form>
+
+
+    <!-- Venda ou Aluguel -->
+    <h2>Vender ou Alugar Imóvel</h2>
+    <form id="formOperacao">
+      <select id="clienteSelect"></select>
+      <select id="imovelSelect"></select>
+      <select id="tipoOperacao">
+        <option value="Venda">Venda</option>
+        <option value="Aluguel">Aluguel</option>
+      </select>
+      <button type="submit">Confirmar Operação</button>
+    </form>
+  
+    <h2>Histórico de Operações</h2>
+    <ul id="historicoOperacoes"></ul>
+  
+    <script src="script.js"></script>
+  </body>
+  </html>
