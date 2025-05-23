@@ -1,32 +1,26 @@
 <!DOCTYPE html>
-<html>
+<html lang="pt-br">
 <head>
-	<title>Imobiliaria</title>
-	<link rel="stylesheet" type="text/css" href="login.css">
-<link href="https://fonts.googleapis.com/css2?family=Jost:wght@500&display=swap" rel="stylesheet">
+  <meta charset="UTF-8">
+  <title>Login</title>
+  <link rel="stylesheet" href="login.css">
 </head>
 <body>
-	<div class="main">  	
-		<input type="checkbox" id="chk" aria-hidden="true">
 
-			<div class="signup">
-				<form>
-					<label for="chk" aria-hidden="true">Cadastrar</label>
-					<input type="text" name="txt" placeholder="Seu Nome" required="">
-					<input type="email" name="email" placeholder="Email" required="">
-					<input type="password" name="pswd" placeholder="Senha" required="">
-					<button>Cadastrar</button>
-				</form>
-			</div>
+  <div class="img-fundo"></div>
 
-			<div class="login">
-				<form>
-					<label for="chk" aria-hidden="true">Entrar</label>
-					<input type="email" name="email" placeholder="Email" required="">
-					<input type="password" name="pswd" placeholder="Senha" required="">
-					<button>Login</button>
-				</form>
-			</div>
-	</div>
+  <form id="loginForm">
+    <h3>Login</h3>
+
+    <label for="username">Email</label>
+    <input type="text" placeholder="Digite seu Email" id="username" required>
+
+    <label for="password">Senha</label>
+    <input type="password" placeholder="Digite sua Senha" id="password" required>
+
+    <button type="submit">Entrar</button>
+  </form>
+
+  <script src="login.js"></script>
 </body>
 </html>
