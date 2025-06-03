@@ -49,7 +49,12 @@ clienteForm.addEventListener('submit', e => {
   if (!nome || !telefone) return alert('Preencha todos os campos.');
 
   if(clientes.some(c => c.nome.toLowerCase() === nome.toLowerCase() && c.telefone === telefone)) {
-    alert('Cliente já cadastrado.');
+    Swal.fire({
+      icon: 'error',
+      title: 'Erro!',
+      text: 'Cliente já cadastrado com esse nome e telefone. Por favor, verifique os dados.',
+      confirmButtonColor: 'red'
+    })
     return;
   }
 
@@ -57,7 +62,14 @@ clienteForm.addEventListener('submit', e => {
   salvarDados();
   clienteForm.reset();
   renderClientes();
-  alert('Cliente cadastrado com sucesso!');
+  Swal.fire({
+    icon: 'success',
+    title: 'Sucesso!',
+    text: 'Cliente cadastrado com sucesso.',
+    confirmButtonColor: '#3085d6'
+  });
+  
+
 });
 
 function renderClientes() {
@@ -121,7 +133,12 @@ imovelForm.addEventListener('submit', e => {
     c.telefone === telefoneCliente
   );
   if(!clienteExistente) {
-    alert('Cliente não encontrado na lista. Cadastre-o primeiro em Clientes.');
+    Swal.fire({
+      icon: 'warning',
+      title: 'Cliente não encontrado!',
+      text: 'Por favor, cadastre o cliente antes de adicionar um imóvel.',
+      confirmButtonColor: 'orange'
+    })
     return;
   }
 
@@ -145,7 +162,13 @@ imovelForm.addEventListener('submit', e => {
     imovelPreview.style.display = 'none';
     renderImoveis();
     atualizarSelects();
-    alert('Imóvel cadastrado com sucesso!');
+    Swal.fire({
+      icon: 'success',
+      title: 'Sucesso!',
+      text: 'Imóvel cadastrado com sucesso.',
+      confirmButtonColor: '#3085d6'
+    });
+    
   };
   reader.readAsDataURL(file);
 });
@@ -216,7 +239,12 @@ vendaForm.addEventListener('submit', e => {
   salvarDados();
   renderVendas();
   atualizarSelects();
-  alert('Venda registrada com sucesso!');
+  Swal.fire({
+    icon: 'success',
+    title: 'Sucesso!',
+    text: 'Venda registrada com sucesso.',
+    confirmButtonColor: '#3085d6'
+  });
   vendaForm.reset();
 });
 
@@ -266,7 +294,12 @@ aluguelForm.addEventListener('submit', e => {
   salvarDados();
   renderAlugueis();
   atualizarSelects();
-  alert('Aluguel registrado com sucesso!');
+  Swal.fire({
+    icon: 'success',
+    title: 'Sucesso!',
+    text: 'Aluguel Registrado com sucesso.',
+    confirmButtonColor: '#3085d6'
+  });
   aluguelForm.reset();
 });
 
