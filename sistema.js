@@ -1,10 +1,10 @@
-// Dados
+
 let clientes = [];
 let imoveis = [];
 let vendas = [];
 let alugueis = [];
 
-// LocalStorage
+
 function salvarDados() {
   localStorage.setItem('clientes', JSON.stringify(clientes));
   localStorage.setItem('imoveis', JSON.stringify(imoveis));
@@ -39,6 +39,7 @@ navButtons.forEach(btn => {
   });
 });
 
+// Clientes
 const clienteForm = document.getElementById('clienteForm');
 const listaClientes = document.getElementById('listaClientes');
 
@@ -48,13 +49,13 @@ clienteForm.addEventListener('submit', e => {
   const telefone = document.getElementById('telefoneCliente').value.trim();
   if (!nome || !telefone) return alert('Preencha todos os campos.');
 
-  if(clientes.some(c => c.nome.toLowerCase() === nome.toLowerCase() && c.telefone === telefone)) {
+  if (clientes.some(c => c.nome.toLowerCase() === nome.toLowerCase() && c.telefone === telefone)) {
     Swal.fire({
       icon: 'error',
       title: 'Erro!',
-      text: 'Cliente já cadastrado com esse nome e telefone. Por favor, verifique os dados.',
+      text: 'Cliente já cadastrado com esse nome e telefone.',
       confirmButtonColor: 'red'
-    })
+    });
     return;
   }
 
@@ -62,32 +63,89 @@ clienteForm.addEventListener('submit', e => {
   salvarDados();
   clienteForm.reset();
   renderClientes();
+
   Swal.fire({
     icon: 'success',
     title: 'Sucesso!',
     text: 'Cliente cadastrado com sucesso.',
     confirmButtonColor: '#3085d6'
   });
-  
-
 });
 
 function renderClientes() {
   listaClientes.innerHTML = '';
-  if(clientes.length === 0) {
+
+  if (clientes.length === 0) {
     listaClientes.innerHTML = '<p>Nenhum cliente cadastrado ainda.</p>';
     return;
   }
-  clientes.forEach(c => {
+
+  clientes.forEach((c, index) => {
     const card = document.createElement('div');
     card.className = 'card';
     card.innerHTML = `
       <p><strong>Nome:</strong> ${c.nome}</p>
       <p><strong>Telefone:</strong> ${c.telefone}</p>
+      <div id="listaClientes" class="cards-container">
+      <button class="botao-acao botao-editar" onclick="editarCliente(${index})">Editar</button>
+<button class="botao-acao botao-excluir" onclick="excluirCliente(${index})">Excluir</button>
+</div>
+
     `;
     listaClientes.appendChild(card);
   });
 }
+
+function excluirCliente(index) {
+  Swal.fire({
+    title: 'Tem certeza?',
+    text: 'Deseja realmente excluir este cliente?',
+    icon: 'warning',
+    showCancelButton: true,
+    confirmButtonColor: '#d33',
+    cancelButtonColor: '#aaa',
+    confirmButtonText: 'Sim, excluir!'
+  }).then((result) => {
+    if (result.isConfirmed) {
+      clientes.splice(index, 1);
+      salvarDados();
+      renderClientes();
+      Swal.fire('Excluído!', 'Cliente removido com sucesso.', 'success');
+    }
+  });
+}
+
+function editarCliente(index) {
+  const cliente = clientes[index];
+
+  Swal.fire({
+    title: 'Editar Cliente',
+    html: `
+      <input id="swalNome" class="swal2-input" placeholder="Nome" value="${cliente.nome}">
+      <input id="swalTelefone" class="swal2-input" placeholder="Telefone" value="${cliente.telefone}">
+    `,
+    focusConfirm: false,
+    preConfirm: () => {
+      const novoNome = document.getElementById('swalNome').value.trim();
+      const novoTelefone = document.getElementById('swalTelefone').value.trim();
+
+      if (!novoNome || !novoTelefone) {
+        Swal.showValidationMessage('Preencha todos os campos');
+        return false;
+      }
+      Swal.fire('Editado!', 'Cliente Atualizado.', 'success');
+
+      clientes[index] = { nome: novoNome, telefone: novoTelefone };
+      salvarDados();
+      renderClientes();
+    
+    }
+  });
+}
+
+// Inicializar
+renderClientes();
+
 
 const fotoImovelInput = document.getElementById('fotoImovel');
 const imovelPreview = document.getElementById('imovelPreview');
@@ -127,6 +185,7 @@ imovelForm.addEventListener('submit', e => {
   if(!descricao || !valor || !tipo || !nomeCliente || !telefoneCliente) {
     return alert('Preencha todos os campos corretamente.');
   }
+  
 
   const clienteExistente = clientes.find(c =>
     c.nome.toLowerCase() === nomeCliente.toLowerCase() &&

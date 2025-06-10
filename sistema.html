@@ -21,20 +21,23 @@
     </aside>
 
     <main class="main-content">
-      <!-- Clientes -->
+      
       <section id="clientesSection">
         <h1>Cadastrar Cliente</h1>
         <form id="clienteForm">
           <label for="nomeCliente">Nome</label>
           <input type="text" id="nomeCliente" placeholder="Nome completo" required />
+          
           <label for="telefoneCliente">Telefone</label>
           <input type="text" id="telefoneCliente" placeholder="(99) 99999-9999" required />
+          
           <button type="submit" class="submit-btn">Cadastrar Cliente</button>
         </form>
-
+    
         <h2>Clientes Cadastrados</h2>
         <div id="listaClientes" class="cards-container">
-          <!-- Cards clientes aqui -->
+
+         
         </div>
       </section>
 
@@ -49,19 +52,24 @@
           </div>
           <img id="imovelPreview" alt="Prévia da imagem" style="display:none;" />
           <label for="descricaoImovel">Descrição</label>
-          <textarea id="descricaoImovel" rows="3" placeholder="Ex.: Apartamento amplo com 3 quartos" required></textarea>
-          <label for="valorImovel">Valor (R$)</label>
-          <input type="number" id="valorImovel" placeholder="Ex.: 350000" min="0" required />
+          <textarea id="descricaoImovel" rows="3" placeholder="Ex.: Apartamento com 3 quartos" required></textarea>
           <label for="tipoImovel">Tipo</label>
           <select id="tipoImovel" required>
             <option value="" disabled selected>Selecione</option>
             <option value="Venda">Venda</option>
             <option value="Aluguel">Aluguel</option>
           </select>
-          <label for="clienteImovel">Cliente Responsável (Nome)</label>
-          <input type="text" id="clienteImovel" placeholder="Nome do cliente" required />
-          <label for="telefoneImovel">Telefone do Cliente</label>
-          <input type="text" id="telefoneImovel" placeholder="(99) 99999-9999" required />
+          <label for="valorImovel">Valor (R$)</label>
+          <input type="number" id="valorImovel" placeholder="Ex.: 350000" min="0" required />
+  
+          <label for="clienteImovel">Cliente:</label>
+   <select id="clienteImovel">
+  <option value="">Selecione um cliente</option>
+</select>
+
+<label for="telefoneImovel">Telefone:</label>
+<input type="text" id="telefoneImovel" readonly />
+
           <button type="submit" class="submit-btn">Cadastrar Imóvel</button>
         </form>
 
@@ -71,7 +79,7 @@
         </div>
       </section>
 
-      <!-- Vendas -->
+    
       <section id="vendasSection" style="display:none;">
         <h1>Registrar Venda de Imóvel</h1>
         <form id="vendaForm">
@@ -86,7 +94,7 @@
         <div id="listaVendas" class="cards-container"></div>
       </section>
 
-      <!-- aluguel -->
+   
       <section id="alugueisSection" style="display:none;">
         <h1>Registrar Aluguel de Imóvel</h1>
         <form id="aluguelForm">

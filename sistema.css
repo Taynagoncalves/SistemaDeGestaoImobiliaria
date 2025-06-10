@@ -1,4 +1,4 @@
- /* Reset e base */
+
     * {
       box-sizing: border-box;
       margin: 0; padding: 0;
@@ -13,15 +13,43 @@
     .main-content {
       flex-grow: 1;
       background-color: #04040a;
-      background-image: url(imagens/fundosistema.jpg); /* Ajuste o caminho conforme necessário */
+      background-image: url(imagens/fundosistema.jpg); 
       background-size: cover;
       background-position: center;
       background-repeat: no-repeat;
       padding: 2rem 3rem;
       overflow-y: auto;
     }
+     
+    .botao-acao {
+      display: flex;
+      width: 70px;
+      padding: 8px 8px;
+      font-size: 12px;
+      margin: 0 2px;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      transition: background 0.3s ease, transform 0.2s ease;
+      color: #fff;
+      text-align: center;
+    }
+    .botao-acao.botao-excluir {
+      background-color: #e40e0e;
+  
+    }
+ 
+    
+    .botao-acao.botao-editar{
+      
+      background-color: #3cb1e7;
+    }
+    
+    #listaClientes{
+      display: flex;
+    }
 
-    /* Layout principal */
+    
     .app-container {
       display: flex;
       height: 100vh;
@@ -58,17 +86,18 @@
       user-select: none;
     }
     .nav-button:hover, .nav-button.active {
-      background: #747275;
+      background: #a3a2a3;
       color: #fff;
     }
-    
-  
+
+ 
+
     h1, h2, h3 {
       color: #070101;
       margin-bottom: 1rem;
     }
 
-    /* Forms */
+   
     form {
       background: #fff;
       padding: 1.5rem 2rem;
@@ -106,7 +135,7 @@
       box-shadow: 0 0 8px rgba(125, 95, 255, 0.35);
     }
 
-    /* File input custom */
+   
     .file-upload {
       position: relative;
       overflow: hidden;
@@ -140,7 +169,6 @@
       color: #fff;
     }
 
-    /* Buttons */
     button.submit-btn {
       background: #504e4e;
       color: white;
@@ -157,7 +185,7 @@
       background: #000000;
     }
 
-    /* Cards list */
+    
     .cards-container {
       display: grid;
       grid-template-columns: repeat(auto-fill,minmax(280px,1fr));
@@ -194,7 +222,7 @@
       color: #444;
     }
 
-    /* Preview image smaller */
+    
     #imovelPreview {
       max-width: 100%;
       max-height: 180px;
@@ -205,7 +233,6 @@
       box-shadow: 0 3px 10px rgba(125,95,255,0.3);
     }
 
-    /* Scrollbar */
     .main-content::-webkit-scrollbar {
       width: 10px;
     }
@@ -214,7 +241,7 @@
       border-radius: 5px;
     }
 
-    /* Responsive */
+   
     @media (max-width: 720px) {
       .app-container {
         flex-direction: column;
