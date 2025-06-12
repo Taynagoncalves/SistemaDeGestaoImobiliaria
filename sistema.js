@@ -132,7 +132,7 @@ function excluirVenda(id) {
       inventario.push({ tipo: 'Venda', ...vendaRemovida });
       salvarDados();
       renderVendas();
-      renderInventario(); // ✅ necessário aqui
+      renderInventario(); 
       Swal.fire('Movido!', 'Registro de venda enviado para o inventário.', 'success');
     }
   });
@@ -156,7 +156,7 @@ function excluirAluguel(id) {
       inventario.push({ tipo: 'Aluguel', ...aluguelRemovido });
       salvarDados();
       renderAlugueis();
-      renderInventario(); // ✅
+      renderInventario(); 
       Swal.fire('Movido!', 'Registro de aluguel enviado para o inventário.', 'success');
     }
   });
