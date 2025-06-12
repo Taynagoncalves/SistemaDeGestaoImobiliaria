@@ -92,6 +92,25 @@
 
  
 
+.swal2-popup .swal2-input, 
+.swal2-popup .swal2-select {
+  width: 100% !important;
+  margin: 8px 0;
+  font-size: 16px;
+  padding: 10px;
+  box-sizing: border-box;
+}
+
+
+.swal2-popup .swal2-actions {
+  justify-content: center;
+}
+
+
+.swal2-popup {
+  max-width: 420px !important;
+}
+
     h1, h2, h3 {
       color: #070101;
       margin-bottom: 1rem;

@@ -62,13 +62,12 @@
           <label for="valorImovel">Valor (R$)</label>
           <input type="number" id="valorImovel" placeholder="Ex.: 350000" min="0" required />
   
-          <label for="clienteImovel">Cliente:</label>
-   <select id="clienteImovel">
-  <option value="">Selecione um cliente</option>
-</select>
-
-<label for="telefoneImovel">Telefone:</label>
-<input type="text" id="telefoneImovel" readonly />
+          <select id="clienteImovel">
+            <option value="">Selecione um cliente</option>
+          </select>
+          
+          <input type="text" id="telefoneImovel" readonly />
+          
 
           <button type="submit" class="submit-btn">Cadastrar Imóvel</button>
         </form>
@@ -95,6 +94,7 @@
       </section>
 
    
+
       <section id="alugueisSection" style="display:none;">
         <h1>Registrar Aluguel de Imóvel</h1>
         <form id="aluguelForm">
@@ -104,6 +104,12 @@
           </select>
           <button type="submit" class="submit-btn">Registrar Aluguel</button>
         </form>
+<button class="nav-button" data-target="inventarioSection">Inventário</button>
+<section id="inventarioSection" style="display:none;">
+  <h1>Histórico de Transações (Inventário)</h1>
+  <div id="listaInventario" class="cards-container"></div>
+</section>
+
 
         <h2>Aluguéis Registrados</h2>
         <div id="listaAlugueis" class="cards-container"></div>
@@ -111,7 +117,7 @@
     </main>
   </div>\
 
-<script src="sistema.js"></script>
+<script src="sistema.js?=0.5"></script>
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </body>
 </html>
